@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* dark:… s'active quand <html> porte la classe "dark" (posée par le script du layout et le bouton). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Design system de la maquette « Riad Dar Selma v2 ».
+  Chaque variable --color-*, --text-*, --spacing-*, --radius-* crée des classes Tailwind :
+  --color-accent  → bg-accent, text-accent, border-accent…
+  --text-h1       → text-h1 (taille + interligne + interlettrage)
+  --spacing-gutter→ px-gutter, gap-gutter, mt-gutter…
+*/
+
+@theme {
+  /* Couleurs du thème clair. Le thème sombre les remplace plus bas. */
+  --color-bg: #f3f2ee;
+  --color-bg-2: #e9e7e1;
+  --color-text: #15171c;
+  --color-muted: #5b5f6a;
+  --color-line: rgb(21 23 28 / 0.14);
+  --color-line-strong: rgb(21 23 28 / 0.4);
+  --color-accent: #2440a8;
+  --color-accent-hover: #1b3290;
+  --color-on-accent: #ffffff;
+  --color-field: #ffffff;
+  --color-error: #b3261e;
+  --color-placeholder: #e2e0da;
+  --color-footer-bg: #15171c;
+  --color-footer-text: #f3f2ee;
+  --color-footer-muted: #a9acb6;
+  --color-footer-line: rgb(243 242 238 / 0.18);
+  /* Bandeau final « Dites-nous quand vous venez » : bleu Majorelle dans les deux thèmes. */
+  --color-majorelle: #2440a8;
+
+  /*
+    Tailles de texte fluides : valeur mobile (écran 390 px) → valeur desktop (écran 1440 px).
+    clamp(min, préférée, max) : la taille grandit avec la largeur de l'écran sans dépasser les bornes.
+  */
+  --text-display: clamp(3.125rem, 1.5rem + 6.667vw, 7.5rem); /* 50 → 120 px */
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.045em;
+  --text-h1-room: clamp(3.5rem, 2.014rem + 6.095vw, 7.5rem); /* 56 → 120 px */
+  --text-h1-room--line-height: 0.95;
+  --text-h1-room--letter-spacing: -0.045em;
+  --text-h1-contact: clamp(3rem, 2.071rem + 3.81vw, 5.5rem); /* 48 → 88 px */
+  --text-h1-contact--line-height: 0.95;
+  --text-h1-contact--letter-spacing: -0.045em;
+  --text-h2: clamp(2.5rem, 1.571rem + 3.81vw, 5rem); /* 40 → 80 px */
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.04em;
+  --text-h2-small: clamp(2rem, 1.629rem + 1.524vw, 3rem); /* 32 → 48 px */
+  --text-h2-small--line-height: 1;
+  --text-h2-small--letter-spacing: -0.03em;
+  --text-h3: clamp(1.25rem, 1.111rem + 0.571vw, 1.625rem); /* 20 → 26 px */
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.02em;
+  --text-statement: clamp(1.75rem, 1.193rem + 2.286vw, 3.25rem); /* 28 → 52 px */
+  --text-statement--line-height: 1.12;
+  --text-statement--letter-spacing: -0.03em;
+  --text-figure: clamp(2.5rem, 1.757rem + 3.048vw, 4.5rem); /* 40 → 72 px */
+  --text-figure--line-height: 1;
+  --text-figure--letter-spacing: -0.04em;
+  --text-quote: clamp(1.25rem, 1.111rem + 0.571vw, 1.625rem); /* 20 → 26 px */
+  --text-quote--line-height: 1.25;
+  --text-quote--letter-spacing: -0.02em;
+  --text-quote-large: clamp(2.125rem, 1.243rem + 3.619vw, 4.5rem); /* 34 → 72 px */
+  --text-quote-large--line-height: 1.08;
+  --text-quote-large--letter-spacing: -0.035em;
+  --text-brand: clamp(3.5rem, 2.2rem + 5.333vw, 7rem); /* 56 → 112 px, pied de page */
+  --text-brand--line-height: 0.95;
+  --text-brand--letter-spacing: -0.04em;
+  --text-lead: clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem); /* 17 → 20 px */
+  --text-lead--line-height: 1.55;
+
+  /* Espacements fluides (grille : marges 20 → 80 px, gouttière 16 → 24 px, base 8 px). */
+  --spacing-gutter: clamp(1.25rem, -0.143rem + 5.714vw, 5rem); /* marges latérales 20 → 80 */
+  --spacing-section: clamp(6rem, 4.514rem + 6.095vw, 10rem); /* 96 → 160 */
+  --spacing-section-small: clamp(4rem, 3.257rem + 3.048vw, 6rem); /* 64 → 96 */
+  --spacing-gap: clamp(1rem, 0.814rem + 0.762vw, 1.5rem); /* 16 → 24 */
+  --spacing-gap-small: clamp(0.5rem, 0.407rem + 0.381vw, 0.75rem); /* 8 → 12 */
+  --spacing-gap-large: clamp(2.5rem, 1.571rem + 3.81vw, 5rem); /* 40 → 80 */
+
+  /* L'arche, seul ornement de la maquette : rounded-arch. */
+  --radius-arch: 999px 999px 0 0;
 }
 
+/* Les polices viennent de next/font (layout.tsx), d'où « inline ». */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Champs de date, listes, barres de défilement natifs : clairs par défaut, sombres avec .dark. */
+  color-scheme: light;
+}
+
+/*
+  Thème sombre : mêmes noms de variables, autres valeurs.
+  Les classes (bg-bg, text-accent…) ne changent pas, elles lisent juste ces nouvelles valeurs.
+*/
+.dark {
+  color-scheme: dark;
+  --color-bg: #0e1120;
+  --color-bg-2: #161a2c;
+  --color-text: #e9e8e3;
+  --color-muted: #a4a7b5;
+  --color-line: rgb(233 232 227 / 0.16);
+  --color-line-strong: rgb(233 232 227 / 0.36);
+  --color-accent: #8fa2f2;
+  --color-accent-hover: #a9b8f6;
+  --color-on-accent: #0e1120;
+  --color-field: #0e1120;
+  --color-error: #ffb4ab;
+  --color-placeholder: #1b2036;
+  --color-footer-bg: #080a14;
+  --color-footer-text: #e9e8e3;
+  --color-footer-muted: #a4a7b5;
+  --color-footer-line: rgb(233 232 227 / 0.16);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.55;
 }

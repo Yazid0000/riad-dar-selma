@@ -1,0 +1,15 @@
+{
+  "Meta": {
+    "titre": "Riad Dar Selma | Maison d'hôtes dans la médina de Marrakech",
+    "description": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech."
+  },
+  "Theme": {
+    "clair": "Mode clair",
+    "sombre": "Mode sombre"
+  },
+  "Accueil": {
+    "titre": "Le calme <em>derrière</em> la porte.",
+    "accroche": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech.",
+    "reserver": "Demander une réservation"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "Meta": {
+    "titre": "Riad Dar Selma | Guesthouse in the Marrakech medina",
+    "description": "Six rooms around an orange-tree courtyard in the Marrakech medina."
+  },
+  "Theme": {
+    "clair": "Light mode",
+    "sombre": "Dark mode"
+  },
+  "Accueil": {
+    "titre": "Calm <em>behind</em> the door.",
+    "accroche": "Six rooms around an orange-tree courtyard in the Marrakech medina.",
+    "reserver": "Request a booking"
+  }
+}
