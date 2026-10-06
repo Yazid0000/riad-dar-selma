@@ -1,7 +1,7 @@
 // Lancer avec : npm test
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { valeursVides, valider, type Valeurs } from "./reservation.ts";
+import { formatReference, nouvelleReference, valeursVides, valider, type Valeurs } from "./reservation.ts";
 
 const aujourdhui = "2026-10-06";
 const capacites = { safran: 2, "suite-atlas": 4 };
@@ -29,7 +29,15 @@ test("formulaire vide : les champs obligatoires sont signalés", () => {
 });
 
 test("l'exemple d'erreurs de la maquette", () => {
-  const v = { ...ok, arrivee: "2026-11-12", depart: "2026-11-10", personnes: "3", chambre: "safran", nom: "", email: "claire@" };
+  const v = {
+    ...ok,
+    arrivee: "2026-11-12",
+    depart: "2026-11-10",
+    personnes: "3",
+    chambre: "safran",
+    nom: "",
+    email: "claire@",
+  };
   assert.deepEqual(valider(v, aujourdhui, capacites), {
     depart: "ordre",
     personnes: "capacite",
@@ -48,4 +56,11 @@ test("valeurs trafiquées refusées", () => {
   assert.equal(valider({ ...ok, chambre: "palais" }, aujourdhui, capacites).chambre, "format");
   assert.equal(valider({ ...ok, personnes: "12" }, aujourdhui, capacites).personnes, "requis");
   assert.equal(valider({ ...ok, nom: "x".repeat(101) }, aujourdhui, capacites).nom, "long");
+});
+
+test("numéro de demande : format DS-XXXX, valeurs trafiquées refusées", () => {
+  for (let i = 0; i < 200; i++) assert.match(nouvelleReference(), formatReference);
+  for (const faux of ["", "DS-4K7", "DS-4K7Q5", "ds-4k7q", "DS-4O7Q", "DS-4K7Q\nBcc: x@y.z"]) {
+    assert.equal(formatReference.test(faux), false, faux);
+  }
 });

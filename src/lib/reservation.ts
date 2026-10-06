@@ -36,6 +36,16 @@ export function lireFormulaire(formData: FormData): Valeurs {
   return v;
 }
 
+// Numéro de demande, ex. « DS-4K7Q ». Il relie une demande et ses modifications dans la boîte mail du riad.
+// Alphabet sans 0/O ni 1/I, qu'on confond à la lecture.
+const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+export const formatReference = /^DS-[A-HJ-NP-Z2-9]{4}$/;
+
+export function nouvelleReference(): string {
+  const tirage = crypto.getRandomValues(new Uint32Array(4));
+  return "DS-" + Array.from(tirage, (n) => alphabet[n % alphabet.length]).join("");
+}
+
 const formatDate = /^\d{4}-\d{2}-\d{2}$/;
 const formatEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

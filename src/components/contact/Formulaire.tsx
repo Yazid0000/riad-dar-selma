@@ -23,7 +23,9 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
 
   const v = etat.statut === "vide" ? { ...valeursVides, chambre: chambreInitiale } : etat.valeurs;
   const erreurs: Erreurs = etat.statut === "erreurs" ? etat.erreurs : {};
-  const envoye = etat.statut === "envoye" && !edition;
+  // Numéro de la demande déjà envoyée ("" tant que rien n'est parti) : renvoyé avec le formulaire
+  // pour que le riad sache qu'une modification remplace la demande précédente.
+  const reference = etat.statut === "vide" ? "" : etat.reference;
 
   // Après chaque réponse du serveur : focus sur le premier champ en erreur, ou sur la confirmation.
   useEffect(() => {
@@ -62,13 +64,20 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
     </label>
   );
 
-  if (envoye) {
+  if (etat.statut === "envoye" && !edition) {
     const date = (d: string) =>
       new Intl.DateTimeFormat(locale, { day: "numeric", month: "long" }).format(new Date(`${d}T12:00:00`));
     const recap = [
-      { cle: t("confirmation.dates"), valeur: t("confirmation.datesValeur", { debut: date(v.arrivee), fin: date(v.depart) }) },
+      { cle: t("confirmation.numero"), valeur: etat.reference },
+      {
+        cle: t("confirmation.dates"),
+        valeur: t("confirmation.datesValeur", { debut: date(v.arrivee), fin: date(v.depart) }),
+      },
       { cle: t("confirmation.personnes"), valeur: v.personnes === "5" ? t("champs.personnesMax") : v.personnes },
-      { cle: t("confirmation.chambre"), valeur: rooms.find((r) => r.slug === v.chambre)?.nom ?? t("champs.sansPreference") },
+      {
+        cle: t("confirmation.chambre"),
+        valeur: rooms.find((r) => r.slug === v.chambre)?.nom ?? t("champs.sansPreference"),
+      },
       { cle: t("confirmation.transfert"), valeur: v.transfert ? t("confirmation.oui") : t("confirmation.non") },
     ];
 
@@ -79,7 +88,10 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
           <h2 ref={titreConfirmation} tabIndex={-1} className="font-display text-h2-small font-medium outline-none">
             {t("confirmation.titre", { prenom: v.nom.split(" ")[0] })}
           </h2>
-          <p className="text-muted">{t("confirmation.texte", { email: v.email })}</p>
+          <p className="text-muted">
+            {t("confirmation.texte", { email: v.email })}
+            {etat.modification && ` ${t("confirmation.remplace")}`}
+          </p>
         </div>
         <dl className="grid self-stretch border-t border-line lg:grid-cols-2">
           {recap.map((r) => (
@@ -97,7 +109,10 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
           >
             {t("confirmation.modifier")}
           </button>
-          <Link href="/" className="grid h-12 place-items-center px-5.5 text-[15px] font-semibold underline underline-offset-4">
+          <Link
+            href="/"
+            className="grid h-12 place-items-center px-5.5 text-[15px] font-semibold underline underline-offset-4"
+          >
             {t("confirmation.accueil")}
           </Link>
         </div>
@@ -124,7 +139,10 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
         </div>
       )}
 
-      {libelle("arrivee", <input type="date" defaultValue={v.arrivee} className={styleChamp} {...attributs("arrivee")} />)}
+      {libelle(
+        "arrivee",
+        <input type="date" defaultValue={v.arrivee} className={styleChamp} {...attributs("arrivee")} />,
+      )}
       {libelle("depart", <input type="date" defaultValue={v.depart} className={styleChamp} {...attributs("depart")} />)}
       {libelle(
         "personnes",
@@ -154,12 +172,23 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
       )}
       {libelle(
         "email",
-        <input type="email" autoComplete="email" defaultValue={v.email} className={styleChamp} {...attributs("email")} />,
+        <input
+          type="email"
+          autoComplete="email"
+          defaultValue={v.email}
+          className={styleChamp}
+          {...attributs("email")}
+        />,
         "col-span-2 lg:col-span-1",
       )}
       {libelle(
         "message",
-        <textarea rows={4} defaultValue={v.message} className={`${styleChamp} h-auto resize-y py-3.5`} {...attributs("message")} />,
+        <textarea
+          rows={4}
+          defaultValue={v.message}
+          className={`${styleChamp} h-auto resize-y py-3.5`}
+          {...attributs("message")}
+        />,
         "col-span-2",
       )}
 
@@ -177,6 +206,8 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
           <span className="text-sm text-muted">{t("transfertTexte")}</span>
         </span>
       </label>
+
+      <input type="hidden" name="reference" value={reference} />
 
       {/* Piège à robots, invisible pour les humains */}
       <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />

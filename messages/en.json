@@ -232,7 +232,9 @@
       "oui": "Yes",
       "non": "No",
       "modifier": "Edit my request",
-      "accueil": "Back to home"
+      "accueil": "Back to home",
+      "numero": "Request number",
+      "remplace": "This version replaces your previous request."
     }
   },
   "Footer": {

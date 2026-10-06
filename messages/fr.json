@@ -232,7 +232,9 @@
       "oui": "Oui",
       "non": "Non",
       "modifier": "Modifier ma demande",
-      "accueil": "Retour à l'accueil"
+      "accueil": "Retour à l'accueil",
+      "numero": "Numéro de demande",
+      "remplace": "Cette version remplace votre demande précédente."
     }
   },
   "Footer": {
