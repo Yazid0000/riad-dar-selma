@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Apparition from "../Apparition";
 
 // Mosaïque : 2 colonnes en mobile, 12 en desktop. Chaque photo indique ses lignes de début/fin
 // (col-[1/3] = de la ligne 1 à la ligne 3, donc 2 colonnes de large), comme dans la maquette.
@@ -26,12 +27,19 @@ export default function Galerie() {
 
   return (
     <section className="flex flex-col gap-8 pt-section">
-      <h2 className="px-gutter text-right font-display text-h2 font-medium text-balance">{t("titre")}</h2>
+      <Apparition>
+        <h2 className="px-gutter text-right font-display text-h2 font-medium text-balance">{t("titre")}</h2>
+      </Apparition>
       <div className="grid auto-rows-[150px] grid-cols-2 gap-2 lg:auto-rows-[300px] lg:grid-cols-12">
-        {photos.map((p) => (
-          <div key={p.cle} className={`relative overflow-hidden bg-placeholder ${p.place}`}>
+        {photos.map((p, i) => (
+          <Apparition
+            key={p.cle}
+            delai={i * 0.08}
+            arche={p.cle === "terrasse"}
+            className={`relative overflow-hidden bg-placeholder ${p.place}`}
+          >
             <Image src={p.photo} alt={t(p.cle)} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
-          </div>
+          </Apparition>
         ))}
       </div>
     </section>

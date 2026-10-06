@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Providers from "@/components/Providers";
 import "../globals.css";
 
 // Polices téléchargées au build et servies par le site lui-même (pas d'appel à Google côté visiteur).
@@ -50,19 +51,17 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <html
-      lang={locale}
-      className={`${bricolage.variable} ${geist.variable} antialiased`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className={`${bricolage.variable} ${geist.variable} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: scriptTheme }} />
       </head>
       <body>
         <NextIntlClientProvider>
-          <Header />
-          {children}
-          <Footer />
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

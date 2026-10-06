@@ -26,7 +26,7 @@ export default function MenuMobile({ liens }: { liens: Lien[] }) {
         onClick={() => setOuvert(!ouvert)}
         aria-expanded={ouvert}
         aria-controls="menu-mobile"
-        className="h-11 rounded-full border border-line px-4.5 text-[15px] font-medium"
+        className="h-11 rounded-full border border-line px-4.5 text-[15px] font-medium transition-transform duration-150 active:scale-97"
       >
         {ouvert ? t("fermer") : t("menu")}
       </button>

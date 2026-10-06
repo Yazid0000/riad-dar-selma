@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { riad } from "@/data/riad";
 import Icone, { type NomIcone } from "../Icone";
+import Apparition from "../Apparition";
 
 const etapes: { cle: "aeroport" | "parking" | "arrivee"; icone: NomIcone }[] = [
   { cle: "aeroport", icone: "flight_land" },
@@ -26,7 +27,7 @@ export default function Acces() {
         loading="lazy"
         className="h-80 w-full border-0 bg-placeholder lg:col-span-full lg:row-start-1 lg:h-160"
       />
-      <div className="flex flex-col gap-5 bg-bg pt-7 lg:col-[8/13] lg:row-start-1 lg:mr-10 lg:self-center lg:p-10">
+      <Apparition className="flex flex-col gap-5 bg-bg pt-7 lg:col-[8/13] lg:row-start-1 lg:mr-10 lg:self-center lg:p-10">
         <span className="text-xs font-semibold tracking-[0.16em] text-muted uppercase">{t("label")}</span>
         <h2 className="font-display text-h2-small font-medium">{t("titre")}</h2>
         <p className="text-[15px] text-muted">{t("adresse")}</p>
@@ -49,7 +50,7 @@ export default function Acces() {
         >
           {t("plans")}
         </a>
-      </div>
+      </Apparition>
     </section>
   );
 }

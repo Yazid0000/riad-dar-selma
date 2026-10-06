@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { use } from "react";
 import Acces from "@/components/accueil/Acces";
 import Appel from "@/components/accueil/Appel";
+import BarreReservation from "@/components/accueil/BarreReservation";
 import Avis from "@/components/accueil/Avis";
 import Chambres from "@/components/accueil/Chambres";
 import Esprit from "@/components/accueil/Esprit";
@@ -22,6 +23,7 @@ export default function Accueil({ params }: PageProps<"/[locale]">) {
       <Avis />
       <Acces />
       <Appel />
+      <BarreReservation />
     </main>
   );
 }

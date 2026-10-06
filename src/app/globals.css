@@ -82,6 +82,37 @@
 
   /* L'arche, seul ornement de la maquette : rounded-arch. */
   --radius-arch: 999px 999px 0 0;
+
+  /*
+    Animations du haut de page (Apparition auChargement) : animate-entree, animate-fondu, animate-arche.
+    Courbe de la maquette, 900 ms. « both » garde l'état de départ pendant le délai éventuel.
+    Les @keyframes « entree » et « fondu » n'ont qu'un « from » : l'élément part de là et revient à son style normal.
+  */
+  --animate-entree: entree 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fondu: fondu 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-arche: arche 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes entree {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+  @keyframes fondu {
+    from {
+      opacity: 0;
+    }
+  }
+  /* Ici, l'arrivée doit être écrite : de inset(…) vers « none » (le style normal),
+     le navigateur ne sait pas faire de transition progressive et saute d'un coup. */
+  @keyframes arche {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
 }
 
 /* Les polices viennent de next/font (layout.tsx), d'où « inline ». */
@@ -131,10 +162,35 @@
   color: var(--color-on-accent);
   font-weight: 600;
   white-space: nowrap;
+  transition:
+    background-color 0.2s,
+    transform 0.15s;
 
   /* @variant hover = seulement sur les appareils qui ont une souris (pas au toucher). */
   @variant hover {
     background: var(--color-accent-hover);
+  }
+
+  /* Au toucher (et au clic) : léger enfoncement. */
+  &:active {
+    transform: scale(0.97);
+    background: var(--color-accent-hover);
+  }
+}
+
+/*
+  Moins d'animations demandées par l'appareil : chaque élément marqué data-anime (Apparition,
+  parallaxe, barre de réservation, arche tracée) s'affiche directement dans son état final.
+  !important l'emporte sur les styles que Motion écrit dans l'attribut style.
+  stroke-dasharray: none = le tracé SVG apparaît complet, sans être dessiné.
+*/
+@media (prefers-reduced-motion: reduce) {
+  [data-anime] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    stroke-dasharray: none !important;
+    animation: none !important;
   }
 }
 

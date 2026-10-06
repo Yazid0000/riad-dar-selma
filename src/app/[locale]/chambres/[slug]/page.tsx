@@ -7,6 +7,8 @@ import CarteChambre from "@/components/CarteChambre";
 import Icone from "@/components/Icone";
 import { rooms } from "@/data/rooms";
 import { Link } from "@/i18n/navigation";
+import Apparition from "@/components/Apparition";
+import BandePhotos from "@/components/BandePhotos";
 
 // Une page par chambre, générée au build : 6 chambres × 2 langues (la langue vient du layout parent).
 export function generateStaticParams() {
@@ -39,15 +41,19 @@ export default function PageChambre({ params }: PageProps<"/[locale]/chambres/[s
         en desktop, photo à gauche, titre et détails à droite, alignés en bas.
       */}
       <section className="grid gap-gap-large px-gutter pt-4 [grid-template-areas:'titre'_'photo'_'details'] lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-x-gap-large lg:gap-y-7 lg:pt-8 lg:[grid-template-areas:'photo_titre'_'photo_details']">
-        <div className="flex flex-col gap-2 [grid-area:titre] lg:gap-7 lg:self-end">
+        <Apparition auChargement className="flex flex-col gap-2 [grid-area:titre] lg:gap-7 lg:self-end">
           <Link href="/#chambres" className="text-sm text-muted">
             <span className="lg:hidden">{t("retourCourt")}</span>
             <span className="hidden lg:inline">{t("retour")}</span>
           </Link>
           <h1 className="font-display text-h1-room font-medium">{chambre.nom}</h1>
-        </div>
+        </Apparition>
 
-        <div className="relative h-110 overflow-hidden rounded-arch bg-placeholder [grid-area:photo] lg:h-180">
+        <Apparition
+          arche
+          auChargement
+          className="relative h-110 overflow-hidden rounded-arch bg-placeholder [grid-area:photo] lg:h-180"
+        >
           <Image
             src={chambre.photo}
             alt={t("photo", { nom: chambre.nom })}
@@ -56,9 +62,9 @@ export default function PageChambre({ params }: PageProps<"/[locale]/chambres/[s
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
-        </div>
+        </Apparition>
 
-        <div className="flex flex-col gap-7 pb-2 [grid-area:details]">
+        <Apparition auChargement delai={0.08} className="flex flex-col gap-7 pb-2 [grid-area:details]">
           <p className="text-lead text-pretty">{t(`accroches.${chambre.slug}`)}</p>
           <dl className="grid grid-cols-3 border-y border-line">
             {caracteristiques.map((c, i) => (
@@ -84,53 +90,43 @@ export default function PageChambre({ params }: PageProps<"/[locale]/chambres/[s
               {tNav("reserver")}
             </Link>
           </div>
-        </div>
+        </Apparition>
       </section>
 
-      <section className="pt-gap-large">
-        <div className="flex snap-x snap-mandatory gap-2 overflow-x-auto px-gutter scrollbar-none">
-          {chambre.photos.map((p) => (
-            <div
-              key={p.cle}
-              style={{ "--l": `${p.largeur[0]}px`, "--ld": `${p.largeur[1]}px` } as React.CSSProperties}
-              className="relative h-55 w-(--l) shrink-0 snap-start bg-placeholder lg:h-95 lg:w-(--ld)"
-            >
-              <Image
-                src={p.photo}
-                alt={t(`photos.${p.cle}`)}
-                fill
-                sizes={`(min-width: 1024px) ${p.largeur[1]}px, ${p.largeur[0]}px`}
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <Apparition className="pt-gap-large">
+        <BandePhotos
+          photos={chambre.photos.map((p) => ({ ...p, alt: t(`photos.${p.cle}`) }))}
+          fermer={tNav("fermer")}
+        />
+      </Apparition>
 
       <section className="grid gap-gap-large px-gutter py-section lg:grid-cols-[4fr_8fr]">
-        <div className="flex flex-col gap-4">
+        <Apparition className="flex flex-col gap-4">
           <h2 className="font-display text-h2-small font-medium">{t("equipementsTitre")}</h2>
           <p className="max-w-[26em] text-muted">{t("equipementsTexte")}</p>
-        </div>
+        </Apparition>
         {/* gap-px sur fond « line » : les cases blanches laissent voir de fines lignes entre elles. */}
         <ul className="grid grid-cols-2 gap-px border border-line bg-line lg:grid-cols-4">
-          {chambre.equipements.map((e) => (
-            <li key={e.cle} className="flex flex-col gap-4.5 bg-bg p-5">
-              <Icone nom={e.icone} className="size-7.5 text-accent" />
-              <span className="text-[15px] leading-[1.35]">{t(`equipements.${e.cle}`)}</span>
+          {chambre.equipements.map((e, i) => (
+            <li key={e.cle} className="bg-bg">
+              <Apparition delai={i * 0.08} className="flex h-full flex-col gap-4.5 p-5">
+                <Icone nom={e.icone} className="size-7.5 text-accent" />
+                <span className="text-[15px] leading-[1.35]">{t(`equipements.${e.cle}`)}</span>
+              </Apparition>
             </li>
           ))}
         </ul>
       </section>
 
       <section className="flex flex-col gap-8 pb-section">
-        <h2 className="px-gutter font-display text-h2-small font-medium">{t("autres")}</h2>
+        <Apparition>
+          <h2 className="px-gutter font-display text-h2-small font-medium">{t("autres")}</h2>
+        </Apparition>
         <div className="flex snap-x snap-mandatory scroll-pl-gutter items-start gap-gap overflow-x-auto px-gutter scrollbar-none">
           {autres.map((r) => (
             <CarteChambre key={r.slug} chambre={r} alt={t("photo", { nom: r.nom })} echelle="reduite">
               <span className="font-display text-xl font-medium">
-                {r.nom}{" "}
-                <span className="font-sans text-sm font-normal text-muted">{t("prix", { prix: r.prix })}</span>
+                {r.nom} <span className="font-sans text-sm font-normal text-muted">{t("prix", { prix: r.prix })}</span>
               </span>
             </CarteChambre>
           ))}

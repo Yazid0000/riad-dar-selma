@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={basculer}
-      className="grid size-11 shrink-0 place-items-center rounded-full border border-line"
+      className="grid size-11 shrink-0 place-items-center rounded-full border border-line transition-transform duration-150 active:scale-97"
     >
       <span className="dark:hidden">
         <Icone nom="dark_mode" className="size-5" />

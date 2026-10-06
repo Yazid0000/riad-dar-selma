@@ -18,7 +18,8 @@ export default function Carrousel({
   const rangee = useRef<HTMLDivElement>(null);
   const defiler = (sens: 1 | -1) => rangee.current?.scrollBy({ left: sens * 400, behavior: "smooth" });
 
-  const fleche = "grid size-12 place-items-center rounded-full border border-line text-lg";
+  const fleche =
+    "grid size-12 place-items-center rounded-full border border-line text-lg transition-[border-color,transform] duration-150 hover:border-text active:scale-94";
 
   return (
     <>

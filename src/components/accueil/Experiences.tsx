@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Apparition from "../Apparition";
 
 // Grille « bento » : 2 colonnes, 3 rangées. Les cases se placent toutes seules dans l'ordre,
 // on indique seulement celles qui s'étendent sur 2 colonnes (col-span) ou 2 rangées (row-span).
@@ -15,10 +16,18 @@ export default function Experiences() {
 
   return (
     <section id="experiences" className="flex flex-col gap-gap-large bg-bg-2 px-gutter py-section">
-      <h2 className="font-display text-h2 font-medium">{t("titre")}</h2>
+      <Apparition>
+        <h2 className="font-display text-h2 font-medium">{t("titre")}</h2>
+      </Apparition>
       <div className="grid grid-cols-[3fr_2fr] grid-rows-[300px_240px_200px] gap-gap-small lg:grid-cols-[7fr_5fr] lg:grid-rows-[340px_280px_260px]">
-        {cases.map((c) => (
-          <div key={c.cle} className={`relative flex items-end overflow-hidden bg-placeholder ${c.place}`}>
+        {cases.map((c, i) => (
+          // Les cases apparaissent l'une après l'autre (80 ms d'écart) ; la terrasse en arche se révèle de bas en haut.
+          <Apparition
+            key={c.cle}
+            delai={i * 0.08}
+            arche={c.cle === "terrasse"}
+            className={`relative flex items-end overflow-hidden bg-placeholder ${c.place}`}
+          >
             <Image
               src={c.photo}
               alt={t(`${c.cle}.photo`)}
@@ -32,7 +41,7 @@ export default function Experiences() {
               <h3 className="font-display text-h3 font-medium">{t(`${c.cle}.titre`)}</h3>
               <p className="max-w-[30ch] text-sm leading-[1.45] text-[#ecebe7]">{t(`${c.cle}.texte`)}</p>
             </div>
-          </div>
+          </Apparition>
         ))}
       </div>
     </section>
