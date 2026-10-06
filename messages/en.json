@@ -164,6 +164,74 @@
       "suite-atlas": "On the top floor, with a private terrace facing the Atlas peaks."
     }
   },
+  "Contact": {
+    "titre": "Request a booking",
+    "intro": "Tell us your dates and what you'd like. We reply within 24 hours, with no commitment and no prepayment.",
+    "whatsapp": "WhatsApp",
+    "whatsappDetail": "{tel}, 9 am to 9 pm",
+    "email": "Email",
+    "delai": "Response time",
+    "delaiDetail": "Within 24 hours, 7 days a week. Often the same day.",
+    "photo": "Mint tea served in the courtyard",
+    "champs": {
+      "arrivee": "Arrival",
+      "depart": "Departure",
+      "personnes": "Guests",
+      "personnesMax": "5 or more",
+      "chambre": "Room",
+      "sansPreference": "No preference",
+      "nom": "Name",
+      "email": "Email",
+      "message": "Message (optional)"
+    },
+    "transfertTitre": "Airport transfer",
+    "transfertTexte": "A driver meets you at the airport. €25 each way.",
+    "confidentialite": "We only use these details to reply to you.",
+    "envoi": "Sending…",
+    "bandeau": "A few fields need attention. They are marked below.",
+    "erreurEnvoi": "Your request could not be sent. Please try again in a moment, or message us on WhatsApp.",
+    "erreurs": {
+      "arrivee": {
+        "requis": "Enter an arrival date.",
+        "passe": "Choose a date from today onwards."
+      },
+      "depart": {
+        "requis": "Enter a departure date.",
+        "ordre": "Departure must be after arrival."
+      },
+      "personnes": {
+        "requis": "Choose the number of guests.",
+        "capacite": "The {nom} room sleeps {max} guests at most."
+      },
+      "chambre": {
+        "format": "Choose a room from the list."
+      },
+      "nom": {
+        "requis": "Enter your name.",
+        "long": "Your name is too long (100 characters max)."
+      },
+      "email": {
+        "requis": "Enter your email.",
+        "format": "This email looks incomplete. Example: name@domain.com"
+      },
+      "message": {
+        "long": "Your message is too long (5,000 characters max)."
+      }
+    },
+    "confirmation": {
+      "titre": "Thank you {prenom}, your request has been sent.",
+      "texte": "We'll reply to {email} within 24 hours.",
+      "dates": "Dates",
+      "datesValeur": "{debut} to {fin}",
+      "personnes": "Guests",
+      "chambre": "Room",
+      "transfert": "Airport transfer",
+      "oui": "Yes",
+      "non": "No",
+      "modifier": "Edit my request",
+      "accueil": "Back to home"
+    }
+  },
   "Footer": {
     "lieu": "Medina, Marrakech",
     "langue": "Language",

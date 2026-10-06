@@ -164,6 +164,74 @@
       "suite-atlas": "Au dernier étage, une terrasse privée face aux sommets de l'Atlas."
     }
   },
+  "Contact": {
+    "titre": "Demander une réservation",
+    "intro": "Indiquez vos dates et vos envies. Nous répondons sous 24 h, sans engagement ni prépaiement.",
+    "whatsapp": "WhatsApp",
+    "whatsappDetail": "{tel}, de 9 h à 21 h",
+    "email": "E-mail",
+    "delai": "Délai de réponse",
+    "delaiDetail": "Sous 24 h, 7 jours sur 7. Souvent dans la journée.",
+    "photo": "Thé à la menthe servi au patio",
+    "champs": {
+      "arrivee": "Arrivée",
+      "depart": "Départ",
+      "personnes": "Personnes",
+      "personnesMax": "5 ou plus",
+      "chambre": "Chambre souhaitée",
+      "sansPreference": "Pas de préférence",
+      "nom": "Nom",
+      "email": "E-mail",
+      "message": "Message (facultatif)"
+    },
+    "transfertTitre": "Transfert aéroport",
+    "transfertTexte": "Un chauffeur vous attend à l'aéroport. 25 € par trajet.",
+    "confidentialite": "Nous utilisons ces informations uniquement pour vous répondre.",
+    "envoi": "Envoi…",
+    "bandeau": "Quelques champs sont à compléter. Ils sont indiqués ci-dessous.",
+    "erreurEnvoi": "L'envoi n'a pas abouti. Réessayez dans un instant, ou écrivez-nous sur WhatsApp.",
+    "erreurs": {
+      "arrivee": {
+        "requis": "Indiquez une date d'arrivée.",
+        "passe": "Choisissez une date à partir d'aujourd'hui."
+      },
+      "depart": {
+        "requis": "Indiquez une date de départ.",
+        "ordre": "Le départ doit être après l'arrivée."
+      },
+      "personnes": {
+        "requis": "Choisissez le nombre de personnes.",
+        "capacite": "La chambre {nom} accueille {max} personnes au maximum."
+      },
+      "chambre": {
+        "format": "Choisissez une chambre dans la liste."
+      },
+      "nom": {
+        "requis": "Indiquez votre nom.",
+        "long": "Votre nom est trop long (100 caractères au maximum)."
+      },
+      "email": {
+        "requis": "Indiquez votre e-mail.",
+        "format": "Cet e-mail semble incomplet. Exemple : nom@domaine.fr"
+      },
+      "message": {
+        "long": "Votre message est trop long (5 000 caractères au maximum)."
+      }
+    },
+    "confirmation": {
+      "titre": "Merci {prenom}, votre demande est envoyée.",
+      "texte": "Nous vous répondons sous 24 h à {email}.",
+      "dates": "Dates",
+      "datesValeur": "Du {debut} au {fin}",
+      "personnes": "Personnes",
+      "chambre": "Chambre",
+      "transfert": "Transfert aéroport",
+      "oui": "Oui",
+      "non": "Non",
+      "modifier": "Modifier ma demande",
+      "accueil": "Retour à l'accueil"
+    }
+  },
   "Footer": {
     "lieu": "Médina, Marrakech",
     "langue": "Langue",
