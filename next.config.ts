@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
       "next-intl/config": "./src/i18n/request.ts",
     },
   },
+  // Toutes les photos viennent d'Unsplash : <Image src="identifiant"> passe par ce chargeur.
+  images: {
+    loader: "custom",
+    loaderFile: "./src/unsplash-loader.ts",
+  },
 };
 
 export default nextConfig;

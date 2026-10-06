@@ -4,12 +4,131 @@
     "description": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech."
   },
   "Theme": {
-    "clair": "Mode clair",
-    "sombre": "Mode sombre"
+    "clair": "Activer le mode clair",
+    "sombre": "Activer le mode sombre"
+  },
+  "Nav": {
+    "accueil": "Dar Selma, accueil",
+    "chambres": "Chambres",
+    "experiences": "Expériences",
+    "acces": "Accès",
+    "contact": "Contact",
+    "menu": "Menu",
+    "fermer": "Fermer",
+    "reserver": "Demander une réservation"
   },
   "Accueil": {
-    "titre": "Le calme <em>derrière</em> la porte.",
-    "accroche": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech.",
-    "reserver": "Demander une réservation"
+    "hero": {
+      "titre": "Le calme <em>derrière</em> la porte.",
+      "accroche": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech.",
+      "photo": "Le patio du riad, son bassin et ses arbres"
+    },
+    "esprit": {
+      "label": "L'esprit du lieu",
+      "texte": "Une maison de famille de 1860, restaurée pièce par pièce. Un bassin, des orangers, une terrasse face à l'Atlas.",
+      "chiffres": [
+        {
+          "valeur": "6",
+          "libelle": "chambres"
+        },
+        {
+          "valeur": "1860",
+          "libelle": "année de construction"
+        },
+        {
+          "valeur": "8 min",
+          "libelle": "à pied de Jemaa el-Fna"
+        }
+      ]
+    },
+    "chambres": {
+      "titre": "Six chambres, toutes différentes.",
+      "precedent": "Chambres précédentes",
+      "suivant": "Chambres suivantes",
+      "details": "{capacite} pers. · dès {prix} €",
+      "photo": "Chambre {nom}"
+    },
+    "experiences": {
+      "titre": "Vos journées au riad.",
+      "table": {
+        "titre": "Table d'hôtes",
+        "texte": "Dîner de saison au patio, à réserver le matin même.",
+        "photo": "Plats marocains servis sur une table"
+      },
+      "hammam": {
+        "titre": "Hammam",
+        "texte": "Privatif, avec gommage au savon noir et rhassoul.",
+        "photo": "Salle voûtée d'un hammam"
+      },
+      "terrasse": {
+        "titre": "Terrasse",
+        "texte": "Petit-déjeuner ou apéritif face à l'Atlas.",
+        "photo": "Vue sur la médina et les sommets de l'Atlas"
+      },
+      "excursions": {
+        "titre": "Excursions",
+        "texte": "Ourika, Agafay, Essaouira. Nous réservons chauffeur et guide.",
+        "photo": "Village de terre dans une vallée de l'Atlas"
+      }
+    },
+    "galerie": {
+      "titre": "La maison, en images.",
+      "patio": "Le patio et son bassin, vus d'en haut",
+      "porte": "Porte en cèdre sculpté",
+      "terrasse": "Toits de la médina au coucher du soleil",
+      "petitDejeuner": "Petit-déjeuner marocain",
+      "hammam": "Vasques du hammam",
+      "indigo": "Salon aux murs de zellige bleu",
+      "ruelle": "Ruelle de la médina"
+    },
+    "avis": {
+      "titre": "Ce qu'en disent nos hôtes.",
+      "liste": [
+        {
+          "citation": "« On ouvre la porte et le bruit de la médina disparaît. »",
+          "auteur": "Claire",
+          "pays": "France"
+        },
+        {
+          "citation": "« Très bonne table d'hôtes, équipe attentive et discrète. »",
+          "auteur": "Sophie",
+          "pays": "Belgique"
+        },
+        {
+          "citation": "« Nous avons pris tous nos petits-déjeuners sur la terrasse de la Suite Atlas. »",
+          "auteur": "Jens",
+          "pays": "Allemagne"
+        }
+      ]
+    },
+    "acces": {
+      "label": "Accès",
+      "titre": "Venir au riad.",
+      "adresse": "12, derb Lalla Selma, Mouassine, Médina de Marrakech (adresse fictive)",
+      "aeroport": {
+        "titre": "Aéroport",
+        "texte": "25 min en voiture. Transfert sur demande."
+      },
+      "parking": {
+        "titre": "Parking",
+        "texte": "À 6 min à pied. Les voitures n'entrent pas dans la médina."
+      },
+      "arrivee": {
+        "titre": "Arrivée",
+        "texte": "Nous venons vous chercher au parking et portons vos bagages."
+      },
+      "plans": "Ouvrir dans Plans",
+      "carte": "Carte de la médina de Marrakech avec l'emplacement du riad"
+    },
+    "appel": {
+      "titre": "Dites-nous quand vous <em>venez</em>.",
+      "texte": "Nous répondons sous 24 h. Aucun prépaiement."
+    }
+  },
+  "Footer": {
+    "lieu": "Médina, Marrakech",
+    "langue": "Langue",
+    "copyright": "© 2026 Riad Dar Selma",
+    "demo": "Projet démo, établissement fictif"
   }
 }

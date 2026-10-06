@@ -119,6 +119,25 @@
   --color-footer-line: rgb(233 232 227 / 0.16);
 }
 
+/*
+  Le bouton pilule de la maquette (« Demander une réservation »).
+  Hauteur et marges se règlent à l'usage : class="bouton h-14 px-7.5".
+*/
+@utility bouton {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 600;
+  white-space: nowrap;
+
+  /* @variant hover = seulement sur les appareils qui ont une souris (pas au toucher). */
+  @variant hover {
+    background: var(--color-accent-hover);
+  }
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

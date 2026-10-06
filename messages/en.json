@@ -4,12 +4,131 @@
     "description": "Six rooms around an orange-tree courtyard in the Marrakech medina."
   },
   "Theme": {
-    "clair": "Light mode",
-    "sombre": "Dark mode"
+    "clair": "Switch to light mode",
+    "sombre": "Switch to dark mode"
+  },
+  "Nav": {
+    "accueil": "Dar Selma, home",
+    "chambres": "Rooms",
+    "experiences": "Experiences",
+    "acces": "Getting here",
+    "contact": "Contact",
+    "menu": "Menu",
+    "fermer": "Close",
+    "reserver": "Request a booking"
   },
   "Accueil": {
-    "titre": "Calm <em>behind</em> the door.",
-    "accroche": "Six rooms around an orange-tree courtyard in the Marrakech medina.",
-    "reserver": "Request a booking"
+    "hero": {
+      "titre": "Calm <em>behind</em> the door.",
+      "accroche": "Six rooms around an orange-tree courtyard in the Marrakech medina.",
+      "photo": "The riad's courtyard, with its pool and trees"
+    },
+    "esprit": {
+      "label": "The house",
+      "texte": "A family house from 1860, restored room by room. A pool, orange trees, a terrace facing the Atlas.",
+      "chiffres": [
+        {
+          "valeur": "6",
+          "libelle": "rooms"
+        },
+        {
+          "valeur": "1860",
+          "libelle": "year built"
+        },
+        {
+          "valeur": "8 min",
+          "libelle": "walk to Jemaa el-Fna"
+        }
+      ]
+    },
+    "chambres": {
+      "titre": "Six rooms, each one different.",
+      "precedent": "Previous rooms",
+      "suivant": "Next rooms",
+      "details": "{capacite} guests · from €{prix}",
+      "photo": "{nom} room"
+    },
+    "experiences": {
+      "titre": "Your days at the riad.",
+      "table": {
+        "titre": "Dinner",
+        "texte": "Seasonal dinner in the courtyard. Book by the morning.",
+        "photo": "Moroccan dishes served on a table"
+      },
+      "hammam": {
+        "titre": "Hammam",
+        "texte": "Private, with black soap scrub and rhassoul clay.",
+        "photo": "Vaulted hammam room"
+      },
+      "terrasse": {
+        "titre": "Terrace",
+        "texte": "Breakfast or drinks facing the Atlas.",
+        "photo": "View over the medina and the Atlas peaks"
+      },
+      "excursions": {
+        "titre": "Day trips",
+        "texte": "Ourika, Agafay, Essaouira. We book the driver and guide.",
+        "photo": "Earthen village in an Atlas valley"
+      }
+    },
+    "galerie": {
+      "titre": "The house in pictures.",
+      "patio": "The courtyard and its pool, seen from above",
+      "porte": "Carved cedar door",
+      "terrasse": "Medina rooftops at sunset",
+      "petitDejeuner": "Moroccan breakfast",
+      "hammam": "Hammam basins",
+      "indigo": "Lounge with blue zellige walls",
+      "ruelle": "A medina alley"
+    },
+    "avis": {
+      "titre": "What our guests say.",
+      "liste": [
+        {
+          "citation": "“You open the door and the noise of the medina is gone.”",
+          "auteur": "Claire",
+          "pays": "France"
+        },
+        {
+          "citation": "“Excellent dinners, and a team that is attentive and discreet.”",
+          "auteur": "Sophie",
+          "pays": "Belgium"
+        },
+        {
+          "citation": "“We had every breakfast on the Suite Atlas terrace.”",
+          "auteur": "Jens",
+          "pays": "Germany"
+        }
+      ]
+    },
+    "acces": {
+      "label": "Getting here",
+      "titre": "Getting to the riad.",
+      "adresse": "12 Derb Lalla Selma, Mouassine, Marrakech medina (fictional address)",
+      "aeroport": {
+        "titre": "Airport",
+        "texte": "25 min by car. Transfer on request."
+      },
+      "parking": {
+        "titre": "Parking",
+        "texte": "6 min on foot. Cars cannot enter the medina."
+      },
+      "arrivee": {
+        "titre": "Arrival",
+        "texte": "We meet you at the car park and carry your bags."
+      },
+      "plans": "Open in Maps",
+      "carte": "Map of the Marrakech medina showing the riad"
+    },
+    "appel": {
+      "titre": "Tell us when you're <em>coming</em>.",
+      "texte": "We reply within 24 hours. No prepayment."
+    }
+  },
+  "Footer": {
+    "lieu": "Medina, Marrakech",
+    "langue": "Language",
+    "copyright": "© 2026 Riad Dar Selma",
+    "demo": "Demo project, fictional property"
   }
 }
