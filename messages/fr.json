@@ -1,7 +1,10 @@
 {
   "Meta": {
     "titre": "Riad Dar Selma | Maison d'hôtes dans la médina de Marrakech",
-    "description": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech."
+    "description": "Six chambres autour d'un patio d'orangers, dans la médina de Marrakech.",
+    "chambre": "{accroche} Dès {prix} € la nuit, petit-déjeuner inclus.",
+    "contact": "Demandez une réservation au Riad Dar Selma : réponse sous 24 h, sans engagement ni prépaiement.",
+    "donneesStructurees": "Maison de famille de 1860 dans la médina de Marrakech : six chambres autour d’un patio d’orangers, hammam et terrasse face à l’Atlas."
   },
   "Theme": {
     "clair": "Activer le mode clair",

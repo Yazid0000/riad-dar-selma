@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { riad } from "@/data/riad";
 import { Link } from "@/i18n/navigation";
 import Apparition from "../Apparition";
 import PhotoParallaxe from "./PhotoParallaxe";
@@ -25,7 +26,7 @@ export default function Hero() {
       <Apparition arche auChargement className="relative overflow-hidden rounded-arch bg-placeholder">
         <PhotoParallaxe>
           <Image
-            src="1750859464437-b66433efd869"
+            src={riad.photo}
             alt={t("photo")}
             fill
             preload

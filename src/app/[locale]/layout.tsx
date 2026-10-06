@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { indexationBloquee, siteUrl } from "@/i18n/site";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
@@ -34,9 +35,13 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
 
+  // Ce qui vaut pour tout le site. Le reste (description, canonique, hreflang, Open Graph)
+  // est défini page par page avec metadonnees() de src/i18n/site.ts.
   return {
-    title: t("titre"),
-    description: t("description"),
+    metadataBase: new URL(siteUrl),
+    // Titre de l'accueil, et modèle des autres pages : « Suite Atlas | Riad Dar Selma ».
+    title: { default: t("titre"), template: "%s | Riad Dar Selma" },
+    ...(indexationBloquee && { robots: { index: false, follow: false } }),
   };
 }
 

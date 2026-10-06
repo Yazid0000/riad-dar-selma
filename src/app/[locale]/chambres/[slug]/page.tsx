@@ -1,12 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 import CarteChambre from "@/components/CarteChambre";
 import Icone from "@/components/Icone";
 import { rooms } from "@/data/rooms";
 import { Link } from "@/i18n/navigation";
+import { metadonnees } from "@/i18n/site";
 import Apparition from "@/components/Apparition";
 import BandePhotos from "@/components/BandePhotos";
 
@@ -17,6 +19,21 @@ export function generateStaticParams() {
 
 // Toute autre adresse (/chambres/inconnue) renvoie une 404 au lieu d'essayer de la générer.
 export const dynamicParams = false;
+
+// Titre « Suite Atlas | Riad Dar Selma » (modèle du layout), description = accroche + prix.
+export async function generateMetadata({ params }: PageProps<"/[locale]/chambres/[slug]">): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const chambre = rooms.find((r) => r.slug === slug);
+  if (!chambre) return {};
+  const t = await getTranslations({ locale, namespace: "Chambre" });
+  const tMeta = await getTranslations({ locale, namespace: "Meta" });
+  return metadonnees({
+    locale,
+    chemin: `/chambres/${slug}`,
+    titre: chambre.nom,
+    description: tMeta("chambre", { accroche: t(`accroches.${slug}`), prix: chambre.prix }),
+  });
+}
 
 export default function PageChambre({ params }: PageProps<"/[locale]/chambres/[slug]">) {
   const { locale, slug } = use(params);

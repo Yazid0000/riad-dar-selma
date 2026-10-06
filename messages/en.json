@@ -1,7 +1,10 @@
 {
   "Meta": {
     "titre": "Riad Dar Selma | Guesthouse in the Marrakech medina",
-    "description": "Six rooms around an orange-tree courtyard in the Marrakech medina."
+    "description": "Six rooms around an orange-tree courtyard in the Marrakech medina.",
+    "chambre": "{accroche} From €{prix} per night, breakfast included.",
+    "contact": "Request a booking at Riad Dar Selma: we reply within 24 hours, with no commitment and no prepayment.",
+    "donneesStructurees": "A family house from 1860 in the Marrakech medina: six rooms around an orange-tree courtyard, a hammam and a terrace facing the Atlas."
   },
   "Theme": {
     "clair": "Switch to light mode",

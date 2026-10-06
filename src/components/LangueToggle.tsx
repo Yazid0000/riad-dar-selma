@@ -2,6 +2,7 @@
 
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
+import { cheminLangue } from "@/i18n/site";
 
 const langues = ["fr", "en"] as const;
 
@@ -12,8 +13,6 @@ export default function LangueToggle({ pilule = false }: { pilule?: boolean }) {
   const locale = useLocale();
   const chemin = usePathname(); // sans le préfixe de langue
 
-  const href = (code: string) => (code === "fr" ? chemin : `/en${chemin === "/" ? "" : chemin}`);
-
   return (
     <div className={pilule ? "flex rounded-full border border-footer-line p-0.75" : "flex gap-1.5"}>
       {langues.map((code) => {
@@ -21,7 +20,7 @@ export default function LangueToggle({ pilule = false }: { pilule?: boolean }) {
         return (
           <a
             key={code}
-            href={href(code)}
+            href={cheminLangue(code, chemin)}
             hrefLang={code}
             aria-current={actif ? "true" : undefined}
             className={

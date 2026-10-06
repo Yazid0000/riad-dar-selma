@@ -1,11 +1,19 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 import Formulaire from "@/components/contact/Formulaire";
 import { riad } from "@/data/riad";
 import { rooms } from "@/data/rooms";
 import Apparition from "@/components/Apparition";
+import { metadonnees } from "@/i18n/site";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+  return metadonnees({ locale, chemin: "/contact", titre: t("Contact.titre"), description: t("Meta.contact") });
+}
 
 export default function Contact({ params, searchParams }: PageProps<"/[locale]/contact">) {
   setRequestLocale(use(params).locale);
