@@ -204,6 +204,16 @@
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
   }
+
+  /* Sélection de texte et curseur de saisie : couleurs du site plutôt que le bleu du navigateur. */
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+  input,
+  textarea {
+    caret-color: var(--color-accent);
+  }
 }
 
 body {

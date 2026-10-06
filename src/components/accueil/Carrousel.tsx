@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Icone from "../Icone";
 
 // Rangée qui défile horizontalement (scroll-snap natif) + flèches précédent / suivant.
 // Les cartes arrivent déjà rendues par le serveur via children.
@@ -27,10 +28,10 @@ export default function Carrousel({
         {titre}
         <div className="flex shrink-0 gap-2">
           <button type="button" onClick={() => defiler(-1)} aria-label={precedent} className={fleche}>
-            ←
+            <Icone nom="arrow_back" className="size-4.5" />
           </button>
           <button type="button" onClick={() => defiler(1)} aria-label={suivant} className={fleche}>
-            →
+            <Icone nom="arrow_forward" className="size-4.5" />
           </button>
         </div>
       </div>

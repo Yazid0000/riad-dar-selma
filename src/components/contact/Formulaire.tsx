@@ -6,6 +6,7 @@ import { demanderReservation, type EtatReservation } from "@/app/actions/reserva
 import { rooms } from "@/data/rooms";
 import { Link } from "@/i18n/navigation";
 import { valeursVides, type Champ, type Erreurs } from "@/lib/reservation";
+import Icone from "../Icone";
 
 const ordreChamps: Champ[] = ["arrivee", "depart", "personnes", "chambre", "nom", "email", "message"];
 const obligatoires: Champ[] = ["arrivee", "depart", "personnes", "nom", "email"];
@@ -199,9 +200,9 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
         <input type="checkbox" name="transfert" defaultChecked={v.transfert} className="peer sr-only" />
         <span
           aria-hidden="true"
-          className="grid size-5.5 place-items-center border-[1.5px] border-text text-sm text-transparent peer-checked:border-accent peer-checked:bg-accent peer-checked:text-on-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent"
+          className="grid size-5.5 place-items-center border-[1.5px] border-text text-transparent peer-checked:border-accent peer-checked:bg-accent peer-checked:text-on-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent"
         >
-          ✓
+          <Icone nom="check" className="size-4" />
         </span>
         <span className="flex flex-col gap-0.5">
           <strong className="text-[15px] font-semibold">{t("transfertTitre")}</strong>
@@ -216,7 +217,11 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
 
       <div className="col-span-2 mt-2 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
         <span className="text-[13px] text-muted">{t("confidentialite")}</span>
-        <button type="submit" disabled={enCours} className="bouton h-14 px-7.5 disabled:opacity-60">
+        <button
+          type="submit"
+          disabled={enCours}
+          className="bouton min-h-14 max-w-full shrink-0 px-7.5 py-3 text-center whitespace-normal! disabled:opacity-60"
+        >
           {enCours ? t("envoi") : tNav("reserver")}
         </button>
       </div>

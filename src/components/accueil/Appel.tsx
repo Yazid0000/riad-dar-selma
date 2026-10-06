@@ -11,7 +11,7 @@ export default function Appel() {
   return (
     <section
       id="reserver"
-      className="[&_*:focus-visible]:outline-white bg-majorelle px-gutter py-section text-center text-white"
+      className="[&_*:focus-visible]:outline-white selection:bg-white selection:text-majorelle bg-majorelle px-gutter py-section text-center text-white"
     >
       <Apparition className="flex flex-col items-center gap-9">
         <ArcheTracee />

@@ -8,6 +8,7 @@ import { riad } from "@/data/riad";
 import { rooms } from "@/data/rooms";
 import Apparition from "@/components/Apparition";
 import { metadonnees } from "@/i18n/site";
+import Icone from "@/components/Icone";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
@@ -54,9 +55,7 @@ export default function Contact({ params, searchParams }: PageProps<"/[locale]/c
                 <span className="text-[15px] text-muted">{l.detail}</span>
               </span>
               {l.href.startsWith("http") && <span className="sr-only">{t("nouvelOnglet")}</span>}
-              <span aria-hidden="true" className="text-xl text-accent">
-                ↗
-              </span>
+              <Icone nom="north_east" className="size-5 shrink-0 text-accent" />
             </a>
           ))}
           <div className="flex flex-col border-y border-line py-4.5">
