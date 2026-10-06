@@ -125,6 +125,45 @@
       "texte": "We reply within 24 hours. No prepayment."
     }
   },
+  "Chambre": {
+    "retour": "← All rooms",
+    "retourCourt": "← Rooms",
+    "photo": "{nom} room, full view",
+    "capacite": "Sleeps",
+    "surface": "Size",
+    "lit": "Bed",
+    "personnes": "{n, plural, one {# guest} other {# guests}}",
+    "prix": "from €{prix}",
+    "parNuit": "per night, breakfast included",
+    "parNuitPour": "per night for {n}, breakfast included",
+    "photos": {
+      "teteDeLit": "Headboard detail",
+      "salleDEau": "Tadelakt bathroom",
+      "fenetre": "Window onto the courtyard",
+      "petitDejeuner": "Breakfast in the room"
+    },
+    "equipementsTitre": "In the room",
+    "equipementsTexte": "Breakfast in the courtyard or on the terrace, whenever suits you.",
+    "equipements": {
+      "linge": "Washed cotton linen",
+      "clim": "Air conditioning and heating",
+      "wifi": "Wi-Fi",
+      "douche": "Tadelakt shower",
+      "produits": "Orange blossom toiletries",
+      "petitDejeuner": "Breakfast included",
+      "terrasse": "Private terrace",
+      "baignoire": "Tadelakt bathtub"
+    },
+    "autres": "Other rooms",
+    "accroches": {
+      "safran": "Opens onto the courtyard, with golden late-afternoon light.",
+      "jasmin": "Small and cool, steps from the pool and the climbing jasmine.",
+      "cedre": "Under a hand-painted cedar ceiling, above the orange trees.",
+      "neroli": "The brightest room on the gallery, with an alcove for a third guest.",
+      "indigo": "Midnight-blue tadelakt walls, raw linen, a carved wooden screen window.",
+      "suite-atlas": "On the top floor, with a private terrace facing the Atlas peaks."
+    }
+  },
   "Footer": {
     "lieu": "Medina, Marrakech",
     "langue": "Language",

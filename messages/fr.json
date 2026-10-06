@@ -125,6 +125,45 @@
       "texte": "Nous répondons sous 24 h. Aucun prépaiement."
     }
   },
+  "Chambre": {
+    "retour": "← Toutes les chambres",
+    "retourCourt": "← Chambres",
+    "photo": "Chambre {nom}, vue d'ensemble",
+    "capacite": "Capacité",
+    "surface": "Surface",
+    "lit": "Lit",
+    "personnes": "{n, plural, one {# personne} other {# personnes}}",
+    "prix": "dès {prix} €",
+    "parNuit": "par nuit, petit-déjeuner inclus",
+    "parNuitPour": "par nuit pour {n}, petit-déjeuner inclus",
+    "photos": {
+      "teteDeLit": "Détail de la tête de lit",
+      "salleDEau": "Salle d'eau en tadelakt",
+      "fenetre": "Fenêtre sur le patio",
+      "petitDejeuner": "Petit-déjeuner en chambre"
+    },
+    "equipementsTitre": "Dans la chambre",
+    "equipementsTexte": "Petit-déjeuner au patio ou en terrasse, à l'heure qui vous convient.",
+    "equipements": {
+      "linge": "Linge en coton lavé",
+      "clim": "Climatisation et chauffage",
+      "wifi": "Wi-Fi",
+      "douche": "Douche en tadelakt",
+      "produits": "Produits à la fleur d'oranger",
+      "petitDejeuner": "Petit-déjeuner inclus",
+      "terrasse": "Terrasse privée",
+      "baignoire": "Baignoire en tadelakt"
+    },
+    "autres": "Les autres chambres",
+    "accroches": {
+      "safran": "Ouverte sur le patio, avec la lumière dorée des fins d'après-midi.",
+      "jasmin": "Intime et fraîche, à deux pas du bassin et du jasmin grimpant.",
+      "cedre": "Sous un plafond en cèdre peint à la main, au-dessus des orangers.",
+      "neroli": "La plus lumineuse de la galerie, avec une alcôve pour une troisième personne.",
+      "indigo": "Murs en tadelakt bleu nuit, lin écru, fenêtre en moucharabieh.",
+      "suite-atlas": "Au dernier étage, une terrasse privée face aux sommets de l'Atlas."
+    }
+  },
   "Footer": {
     "lieu": "Médina, Marrakech",
     "langue": "Langue",

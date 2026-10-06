@@ -35,7 +35,7 @@ export default function Carrousel({
       </div>
       <div
         ref={rangee}
-        className="flex snap-x snap-mandatory scroll-pl-gutter items-start gap-gap overflow-x-auto px-gutter pb-2 [scrollbar-width:none]"
+        className="flex snap-x snap-mandatory scroll-pl-gutter items-start gap-gap overflow-x-auto px-gutter pb-2 scrollbar-none"
       >
         {children}
       </div>
