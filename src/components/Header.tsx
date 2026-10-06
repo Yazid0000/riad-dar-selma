@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="relative z-10 flex h-18 items-center justify-between gap-6 bg-bg px-gutter lg:h-24">
-      <Link href="/" aria-label={t("accueil")} className="flex shrink-0 items-center gap-2.5">
+      <Link href="/" aria-label={t("accueil")} className="-my-1.5 flex shrink-0 items-center gap-2.5 py-1.5">
         <span aria-hidden="true" className="h-5.5 w-4 rounded-arch bg-accent" />
         <span className="font-display text-[22px] font-semibold tracking-[-0.02em]">Dar Selma</span>
       </Link>

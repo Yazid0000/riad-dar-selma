@@ -24,7 +24,7 @@ export default function Accueil({ params }: PageProps<"/[locale]">) {
   setRequestLocale(use(params).locale);
 
   return (
-    <main>
+    <main id="contenu">
       <DonneesStructurees />
       <Hero />
       <Esprit />

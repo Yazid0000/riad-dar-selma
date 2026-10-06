@@ -9,7 +9,10 @@ export default function Appel() {
   const tNav = useTranslations("Nav");
 
   return (
-    <section id="reserver" className="bg-majorelle px-gutter py-section text-center text-white">
+    <section
+      id="reserver"
+      className="[&_*:focus-visible]:outline-white bg-majorelle px-gutter py-section text-center text-white"
+    >
       <Apparition className="flex flex-col items-center gap-9">
         <ArcheTracee />
         <h2 className="max-w-[16ch] font-display text-h2 font-medium text-balance">

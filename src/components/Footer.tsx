@@ -6,13 +6,17 @@ export default function Footer() {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="flex flex-col gap-16 bg-footer-bg px-gutter pt-section-small pb-10 text-footer-text">
+    <footer className="[&_*:focus-visible]:outline-footer-text flex flex-col gap-16 bg-footer-bg px-gutter pt-section-small pb-10 text-footer-text">
       <div className="grid gap-10 lg:grid-cols-[6fr_3fr_3fr]">
         <span className="font-display text-brand font-medium">Dar Selma</span>
         <div className="flex flex-col gap-2 text-[15px]">
           <span className="text-footer-muted">{t("lieu")}</span>
-          <a href={`tel:${riad.telephone.replaceAll(" ", "")}`}>{riad.telephone}</a>
-          <a href={`mailto:${riad.email}`}>{riad.email}</a>
+          <a href={`tel:${riad.telephone.replaceAll(" ", "")}`} className="-my-3 py-3">
+            {riad.telephone}
+          </a>
+          <a href={`mailto:${riad.email}`} className="-my-3 py-3">
+            {riad.email}
+          </a>
         </div>
         <div className="flex flex-col items-start gap-3">
           <span className="text-sm text-footer-muted">{t("langue")}</span>

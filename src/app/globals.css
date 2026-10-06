@@ -194,6 +194,18 @@
   }
 }
 
+/*
+  Focus clavier : contour de 2 px couleur accent, décollé de l'élément pour rester lisible
+  en clair, en sombre et sur les photos. :focus-visible = seulement au clavier, pas au clic.
+  Dans @layer base : les classes Tailwind (outline-white…) peuvent la remplacer là où il faut.
+*/
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

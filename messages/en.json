@@ -18,7 +18,9 @@
     "contact": "Contact",
     "menu": "Menu",
     "fermer": "Close",
-    "reserver": "Request a booking"
+    "reserver": "Request a booking",
+    "aller": "Skip to content",
+    "nouvelOnglet": "(opens in a new tab)"
   },
   "Accueil": {
     "hero": {
@@ -235,7 +237,8 @@
       "accueil": "Back to home",
       "numero": "Request number",
       "remplace": "This version replaces your previous request."
-    }
+    },
+    "nouvelOnglet": "(opens in a new tab)"
   },
   "Footer": {
     "lieu": "Medina, Marrakech",

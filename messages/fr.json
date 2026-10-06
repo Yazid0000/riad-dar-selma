@@ -18,7 +18,9 @@
     "contact": "Contact",
     "menu": "Menu",
     "fermer": "Fermer",
-    "reserver": "Demander une réservation"
+    "reserver": "Demander une réservation",
+    "aller": "Aller au contenu",
+    "nouvelOnglet": "(s'ouvre dans un nouvel onglet)"
   },
   "Accueil": {
     "hero": {
@@ -235,7 +237,8 @@
       "accueil": "Retour à l'accueil",
       "numero": "Numéro de demande",
       "remplace": "Cette version remplace votre demande précédente."
-    }
+    },
+    "nouvelOnglet": "(s'ouvre dans un nouvel onglet)"
   },
   "Footer": {
     "lieu": "Médina, Marrakech",

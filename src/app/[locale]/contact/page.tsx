@@ -33,7 +33,10 @@ export default function Contact({ params, searchParams }: PageProps<"/[locale]/c
   ];
 
   return (
-    <main className="grid items-start gap-gap-large px-gutter pt-4 pb-section lg:grid-cols-[5fr_7fr] lg:pt-8">
+    <main
+      id="contenu"
+      className="grid items-start gap-gap-large px-gutter pt-4 pb-section lg:grid-cols-[5fr_7fr] lg:pt-8"
+    >
       <Apparition auChargement className="flex flex-col gap-7">
         <h1 className="font-display text-h1-contact font-medium text-balance">{t("titre")}</h1>
         <p className="max-w-[24em] text-lead text-muted">{t("intro")}</p>
@@ -50,6 +53,7 @@ export default function Contact({ params, searchParams }: PageProps<"/[locale]/c
                 <strong className="font-semibold">{l.titre}</strong>
                 <span className="text-[15px] text-muted">{l.detail}</span>
               </span>
+              {l.href.startsWith("http") && <span className="sr-only">{t("nouvelOnglet")}</span>}
               <span aria-hidden="true" className="text-xl text-accent">
                 ↗
               </span>

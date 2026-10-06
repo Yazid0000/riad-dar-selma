@@ -18,6 +18,7 @@ const plans = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
 
 export default function Acces() {
   const t = useTranslations("Accueil.acces");
+  const tNav = useTranslations("Nav");
 
   return (
     <section id="acces" className="grid px-gutter pb-section lg:grid-cols-12">
@@ -46,9 +47,10 @@ export default function Acces() {
           href={plans}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[15px] font-semibold text-accent underline underline-offset-4"
+          className="-my-3 py-3 text-[15px] font-semibold text-accent underline underline-offset-4"
         >
           {t("plans")}
+          <span className="sr-only"> {tNav("nouvelOnglet")}</span>
         </a>
       </Apparition>
     </section>

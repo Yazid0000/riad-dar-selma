@@ -8,9 +8,10 @@ import { Link } from "@/i18n/navigation";
 import { valeursVides, type Champ, type Erreurs } from "@/lib/reservation";
 
 const ordreChamps: Champ[] = ["arrivee", "depart", "personnes", "chambre", "nom", "email", "message"];
+const obligatoires: Champ[] = ["arrivee", "depart", "personnes", "nom", "email"];
 
 const styleChamp =
-  "h-13 w-full rounded-none border border-line-strong bg-field px-3 text-base font-normal text-text focus-visible:outline-2 focus-visible:outline-accent aria-invalid:border-error";
+  "h-13 w-full rounded-none border border-line-strong bg-field px-3 text-base font-normal text-text focus-visible:outline-offset-0 aria-invalid:border-error";
 
 export default function Formulaire({ chambreInitiale }: { chambreInitiale: string }) {
   const t = useTranslations("Contact");
@@ -48,6 +49,7 @@ export default function Formulaire({ chambreInitiale }: { chambreInitiale: strin
   const attributs = (c: Champ) => ({
     id: c,
     name: c,
+    "aria-required": obligatoires.includes(c) || undefined,
     "aria-invalid": erreurs[c] ? true : undefined,
     "aria-describedby": erreurs[c] ? `erreur-${c}` : undefined,
   });

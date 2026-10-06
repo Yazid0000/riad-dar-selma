@@ -52,14 +52,14 @@ export default function PageChambre({ params }: PageProps<"/[locale]/chambres/[s
   ];
 
   return (
-    <main>
+    <main id="contenu">
       {/*
         Grille à zones nommées : en mobile, titre → photo → détails empilés ;
         en desktop, photo à gauche, titre et détails à droite, alignés en bas.
       */}
       <section className="grid gap-gap-large px-gutter pt-4 [grid-template-areas:'titre'_'photo'_'details'] lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-x-gap-large lg:gap-y-7 lg:pt-8 lg:[grid-template-areas:'photo_titre'_'photo_details']">
         <Apparition auChargement className="flex flex-col gap-2 [grid-area:titre] lg:gap-7 lg:self-end">
-          <Link href="/#chambres" className="text-sm text-muted">
+          <Link href="/#chambres" className="-my-3 py-3 text-sm text-muted">
             <span className="lg:hidden">{t("retourCourt")}</span>
             <span className="hidden lg:inline">{t("retour")}</span>
           </Link>

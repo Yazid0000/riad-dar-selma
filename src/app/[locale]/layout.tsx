@@ -54,6 +54,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
   setRequestLocale(locale);
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
 
   return (
     <html lang={locale} className={`${bricolage.variable} ${geist.variable} antialiased`} suppressHydrationWarning>
@@ -63,6 +64,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body>
         <NextIntlClientProvider>
           <Providers>
+            {/* Caché au-dessus de l'écran, il descend au premier Tab : permet de sauter le menu et d'aller droit au contenu. */}
+            <a href="#contenu" className="bouton fixed top-3 left-3 z-50 h-12 -translate-y-24 px-6 focus:translate-y-0">
+              {tNav("aller")}
+            </a>
             <Header />
             {children}
             <Footer />
